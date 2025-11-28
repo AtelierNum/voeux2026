@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voeux</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="./script.js"></script>
+  <style>
+    #enter-ar-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    #enter-ar-btn {
+      padding: 20px 40px;
+      font-size: 24px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="enter-ar-container">
+    <button id="enter-ar-btn">Enter AR</button>
+  </div>
+
+  <a-scene id="ar-scene" style="display: none;">
+    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
+
+    <a-assets>
+      <video id="01" loop="true" src="assets/01.mp4" playsinline></video>
+      <video id="02" loop="true" src="assets/02.mp4" playsinline></video>
+      <video id="03" loop="true" src="assets/03.mp4" playsinline></video>
+      <video id="04" loop="true" src="assets/04.mp4" playsinline></video>
+      <video id="05" loop="true" src="assets/05.mp4" playsinline></video>
+      <video id="06" loop="true" src="assets/06.mp4" playsinline></video>
+      <video id="07" loop="true" src="assets/07.mp4" playsinline></video>
+      <video id="08" loop="true" src="assets/08.mp4" playsinline></video>
+      <video id="09" loop="true" src="assets/09.mp4" playsinline></video>
+      <video id="10" loop="true" src="assets/10.mp4" playsinline></video>
+      <video id="11" loop="true" src="assets/11.mp4" playsinline></video>
+      <video id="12" loop="true" src="assets/12.mp4" playsinline></video>
+      <video id="13" loop="true" src="assets/13.mp4" playsinline></video>
+      <video id="14" loop="true" src="assets/14.mp4" playsinline></video>
+      <video id="15" loop="true" src="assets/15.mp4" playsinline></video>
+    </a-assets>
+
+    <!-- Video wall layout... -->
+    <a-video src="#01" width="72" height="40.5" position="-110.29 40.5 -47.27" rotation="0 66.8 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#02" width="72" height="40.5" position="-66.06 40.5 -100.18" rotation="0 33.4 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#03" width="72" height="40.5" position="0 40.5 -120" rotation="0 0 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#04" width="72" height="40.5" position="66.06 40.5 -100.18" rotation="0 -33.4 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#05" width="72" height="40.5" position="110.29 40.5 -47.27" rotation="0 -66.8 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#06" width="72" height="40.5" position="-110.29 0 -47.27" rotation="0 66.8 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#07" width="72" height="40.5" position="-66.06 0 -100.18" rotation="0 33.4 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#08" width="72" height="40.5" position="0 0 -120" rotation="0 0 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#09" width="72" height="40.5" position="66.06 0 -100.18" rotation="0 -33.4 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#10" width="72" height="40.5" position="110.29 0 -47.27" rotation="0 -66.8 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#11" width="72" height="40.5" position="-110.29 -40.5 -47.27" rotation="0 66.8 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#12" width="72" height="40.5" position="-66.06 -40.5 -100.18" rotation="0 33.4 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#13" width="72" height="40.5" position="0 -40.5 -120" rotation="0 0 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#14" width="72" height="40.5" position="66.06 -40.5 -100.18" rotation="0 -33.4 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+    <a-video src="#15" width="72" height="40.5" position="110.29 -40.5 -47.27" rotation="0 -66.8 0" material="shader: flat; opacity: 0.5;" gaze-interaction></a-video>
+  </a-scene>
+</body>
+</html>
