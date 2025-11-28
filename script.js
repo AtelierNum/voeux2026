@@ -60,9 +60,14 @@ AFRAME.registerComponent('gaze-interaction', {
       easing: 'easeOutQuad'
     });
 
-    // Play video
+    // Play video and handle the promise to avoid errors
     if (this.video) {
-      this.video.play();
+      const playPromise = this.video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.error("Gaze-interaction play failed:", error);
+        });
+      }
     }
   },
 
