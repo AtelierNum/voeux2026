@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const enterArBtn = document.getElementById('enter-ar-btn');
+  const enterArLogoBtn = document.getElementById('enter-ar-logo-btn');
   const arScene = document.getElementById('ar-scene');
   const enterArContainer = document.getElementById('enter-ar-container');
   const videos = document.querySelectorAll('video');
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   enterArBtn.addEventListener('click', startARExperience);
+  enterArLogoBtn.addEventListener('click', startARExperience);
 });
 
 AFRAME.registerComponent('gaze-interaction', {
