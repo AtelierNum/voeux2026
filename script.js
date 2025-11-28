@@ -4,31 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const enterArContainer = document.getElementById('enter-ar-container');
   const videos = document.querySelectorAll('video');
 
-  const startARExperience = () => {
+  const startARExperience = async () => {
     // Hide the button and show the AR scene
     enterArContainer.style.display = 'none';
-    arScene.style.display = 'block';
 
-    // Play all videos once to unlock them for mobile
-    let videosPlayed = 0;
+    // Mute all videos and play them to unlock
     videos.forEach(video => {
-      video.play().then(() => {
-        videosPlayed++;
-        if (videosPlayed === videos.length) {
-          // All videos are unlocked, pause them
-          videos.forEach(v => v.pause());
-        }
-      }).catch(error => {
-        console.error("Video playback failed:", error);
-      });
+      video.muted = true;
+      video.play().catch(e => console.error("Error playing video:", e));
     });
 
-    // Start the A-Frame scene
-    if (arScene.hasLoaded) {
-      arScene.play();
-    } else {
-      arScene.addEventListener('loaded', () => arScene.play());
-    }
+    // Enter AR mode
+    await arScene.enterAR();
+
+    // Unmute videos after a short delay
+    setTimeout(() => {
+      videos.forEach(video => {
+        video.muted = false;
+        video.pause(); // Pause after unlocking
+      });
+    }, 1000);
   };
 
   enterArBtn.addEventListener('click', startARExperience);
@@ -79,7 +74,7 @@ AFRAME.registerComponent('gaze-interaction', {
     });
     this.el.setAttribute('animation__opacity', {
       property: 'material.opacity',
-      to: 0.5,
+      to: 0.75,
       dur: 500,
       easing: 'easeOutQuad'
     });
